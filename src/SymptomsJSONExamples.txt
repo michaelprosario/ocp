@@ -1,0 +1,49 @@
+﻿
+Cold JSON:
+{
+  "fever" : false,
+  "achesAndPains": true,
+  "soreThroat": true,
+  "shortnessOfBreath" : false,
+  "runnyNose": true,
+  "sneezing": true
+}
+
+
+Flu JSON:
+{
+    "fever" : true,
+    "dryCough" : true,
+    "shortnessOfBreath" : false,
+    "headaches" : true,
+    "achesAndPains" :true,
+    "soreThroat" : true,
+    "fatigue" : true,
+    "sneezing" : false 
+}
+
+Allergies JSON:
+
+{
+    "shortnessOfBreath" : true,
+    "achesAndPains" : false, 
+    "soreThroat" : false, 
+    "runnyNose" : true,
+    "sneezing" : true
+}
+
+COVID-19 JSON:
+{
+    "fever" : true,
+    "dryCough" : true,
+    "shortnessOfBreath" : true,
+    "runnyNose" : false,
+    "sneezing" : false
+}
+
+Unknown JSON:
+{
+    "fever" : true,
+    "dryCough" : true,
+    "headaches" : true
+}

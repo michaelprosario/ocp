@@ -1,0 +1,6 @@
+{
+  "Condition": "Cold",
+  "Medications": [ "Acetaminophen", "Ibuprofen" ],
+  "Plan": "Rest and drink plenty of fluids. Take medication to relieve symptoms.",
+  "Prognosis": "Full recovery is normally in 7-10 days."
+}

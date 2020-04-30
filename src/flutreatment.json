@@ -1,0 +1,6 @@
+{
+  "Condition": "Flu",
+  "Medications": [ "Oseltamivir ", "Acetaminophen", "Ibuprofen" ],
+  "Plan": "Rest and drink plenty of fluids. Take oseltamivir to reduce duration, and OTC pain relievers to help relieve symptoms.",
+  "Prognosis": "Full recovery is normally in 5-14 days. Complications such as chest pain and and difficulty breathing require immediate notification of your doctor."
+}

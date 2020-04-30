@@ -1,0 +1,10 @@
+{
+  "fever": true,
+  "dryCough": true,
+  "shortnessOfBreath": false,
+  "headaches": true,
+  "achesAndPains": true,
+  "soreThroat": true,
+  "fatigue": true,
+  "sneezing": false
+}
