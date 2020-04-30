@@ -2,5 +2,6 @@
   Cold = 1,
   Flu,
   Allergies,
-  Unknown
+  Unknown,
+  COVID19
 }
