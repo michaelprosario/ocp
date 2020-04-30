@@ -29,8 +29,7 @@ export class DiagnosticEngine {
 
   async Diagnose() {
     const conditionDefinitions: Array<ConditionBase> = await this.conditionDefinitionsRepository.getAll();
-    console.log(conditionDefinitions);
-    console.log('definitions', conditionDefinitions);
+    console.log('tst', conditionDefinitions);
 
     for (let i = 0; i < conditionDefinitions.length; i++) {
       if (conditionDefinitions[i].matchesSymptoms(this.symptoms)) {
