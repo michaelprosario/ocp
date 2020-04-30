@@ -1,17 +1,7 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿import { Treatment } from './Treatment';
 
-namespace SymptomChecker
-{
-    public class JsonTreatmentDeserializer
-    {
-        public Treatment GetTreatmentFromJsonString(string jsonString)
-        {
-            return JsonConvert.DeserializeObject<Treatment>(jsonString,
-                new StringEnumConverter());
-        }
-    }
+export class JsonTreatmentDeserializer {
+  public GetTreatmentFromJsonString(jsonString: string): Treatment {
+    return JSON.parse(jsonString) as Treatment;
+  }
 }

@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿const fs = require('fs');
 
-namespace SymptomChecker
-{
-    public class FileSymptomsSource
-    {
-        public string GetSymptomsFromSource()
-        {
-            return File.ReadAllText("symptoms.json");
-        }
-    }
+export class FileSymptomsSource {
+  public GetSymptomsFromSource(): string {
+    return fs.readFileSync('symptoms.json', { encoding: 'utf8', flag: 'r' });
+  }
 }

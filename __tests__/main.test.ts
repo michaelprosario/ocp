@@ -1,11 +1,11 @@
-import { AddStuff } from "../src/add-stuff";
+import { AddStuff } from '../src/add-stuff';
 
 describe('Simple adder', () => {
 
   it('Simple adder should properly add numbers', () => {
     // arrange
 
-    var number1 =  3;
+    var number1 = 3;
     var number2 = 2;
 
     // act
@@ -13,5 +13,5 @@ describe('Simple adder', () => {
 
     // assert
     expect(response).toEqual(5);
-  });  
+  });
 });

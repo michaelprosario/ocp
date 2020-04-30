@@ -1,10 +1,6 @@
-﻿namespace SymptomChecker
-{
-    export enum ConditionEnum
-    {
-        Cold,
-        Flu,
-        Allergies,
-        Unknown
-    }
+﻿export enum ConditionEnum {
+  Cold,
+  Flu,
+  Allergies,
+  Unknown
 }

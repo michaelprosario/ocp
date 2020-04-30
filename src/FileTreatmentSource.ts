@@ -1,30 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿import { ConditionEnum } from './ConditionEnum';
 
-namespace SymptomChecker
-{
-    public class FileTreatmentSource
-    {
-        public string GetTreatmentFromFileSource(ConditionEnum condition)
-        {
-            string treatmentJsonFileName = string.Empty;
+const fs = require('fs');
 
-            switch (condition)
-            {
-                case ConditionEnum.Cold:
-                    treatmentJsonFileName = "coldTreatment.json";
-                    break;
-                case ConditionEnum.Flu:
-                    treatmentJsonFileName = "fluTreatment.json";
-                    break;
-                case ConditionEnum.Allergies:
-                    treatmentJsonFileName = "allergiesTreatment.json";
-                    break;
-            }
+export class FileTreatmentSource {
+  public GetTreatmentFromFileSource(condition: ConditionEnum): string {
+    let treatmentJsonFileName: string = '';
 
-            return File.ReadAllText(treatmentJsonFileName);
-        }
+    console.log("condition = " + condition);
+
+    switch (condition) {
+      case ConditionEnum.Cold:
+        treatmentJsonFileName = 'coldTreatment.json';
+        break;
+      case ConditionEnum.Flu:
+        treatmentJsonFileName = 'fluTreatment.json';
+        break;
+      case ConditionEnum.Allergies:
+        treatmentJsonFileName = 'allergiesTreatment.json';
+        break;
     }
+
+    console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+    console.log(treatmentJsonFileName);
+
+    return fs.readFileSync(treatmentJsonFileName, { encoding: 'utf8', flag: 'r' });
+  }
 }
+

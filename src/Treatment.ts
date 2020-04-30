@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿import { ConditionEnum } from './ConditionEnum';
 
-namespace SymptomChecker
-{
-    public class Treatment
-    {
-        public ConditionEnum Condition { get; set; }
-        public List<string> Medications { get; set; }
-        public string Plan { get; set; }
-        public string Prognosis { get; set; }
-    }
+export class Treatment {
+  Condition: ConditionEnum;
+  Medications: string[];
+  Plan: string;
+  Prognosis: string;
 }

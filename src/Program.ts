@@ -1,24 +1,14 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
-using System.IO;
+﻿import { DiagnosticEngine } from './DiagnosticEngine';
+// import { TreatmentEngine } from './TreatmentEngine';
 
-namespace SymptomChecker
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("NOTE: This program is for educational purposes only. For real medical advice consult your doctor.");
+console.log('NOTE: This program is for educational purposes only. For real medical advice consult your doctor.');
+console.log('Symptom Checker Starting...');
 
-            Console.WriteLine("Symptom Checker Starting...");
+const diagnosticEngine = new DiagnosticEngine();
+diagnosticEngine.RunDiagnosticEngine();
 
-            DiagnosticEngine diagnosticEngine = new DiagnosticEngine();
-            diagnosticEngine.RunDiagnosticEngine();
-
-            TreatmentEngine treatmentEngine = new TreatmentEngine();
-            treatmentEngine.RunTreatmentEngine(diagnosticEngine.Diagnosis);
-        }
-
-    }
-}
+console.log(diagnosticEngine.Diagnosis);
+/*
+const treatmentEngine = new TreatmentEngine();
+treatmentEngine.RunTreatmentEngine(diagnosticEngine.Diagnosis);
+*/

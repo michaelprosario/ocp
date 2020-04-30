@@ -1,70 +1,61 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
-using System.IO;
+﻿import { ConditionEnum } from './ConditionEnum';
+import { ConsoleLogger } from './ConsoleLogger';
+import { FileTreatmentSource } from './FileTreatmentSource';
+import { JsonTreatmentDeserializer } from './JsonTreatmentDeserializer';
+import { Treatment } from './Treatment';
 
-namespace SymptomChecker
-{
-    public class TreatmentEngine
-    {
-        public FileTreatmentSource FileTreatmentSource { get; set; } = new FileTreatmentSource();
-        public JsonTreatmentDeserializer JsonTreatmentDeserializer { get; set; } = new JsonTreatmentDeserializer();
-        public ConsoleLogger Logger { get; set; } = new ConsoleLogger();
+export class TreatmentEngine {
+  public FileTreatmentSource: FileTreatmentSource = new FileTreatmentSource();
+  public JsonTreatmentDeserializer: JsonTreatmentDeserializer = new JsonTreatmentDeserializer();
+  public Logger: ConsoleLogger = new ConsoleLogger();
 
-        ConditionEnum condition;
-        Treatment treatment;
+  condition: ConditionEnum;
+  treatment: Treatment;
 
-        public void RunTreatmentEngine(ConditionEnum condition)
-        {
-            this.condition = condition;
+  public RunTreatmentEngine(condition: ConditionEnum) {
+    this.condition = condition;
 
-            LoadPatientTreatment();
+    this.LoadPatientTreatment();
 
-            if (CanTreatmentBeRecomended() == true)
-            {
-                ShowTreatmentPlan();
-                ShowTreatmentMedications();
-                ShowTreatmentPrognosis();
-            }
-        }
-
-        void LoadPatientTreatment()
-        {
-            string treatmentJson = FileTreatmentSource.GetTreatmentFromFileSource(condition);
-            treatment = JsonTreatmentDeserializer.GetTreatmentFromJsonString(treatmentJson);
-        }
-
-        bool CanTreatmentBeRecomended()
-        {
-            bool canTreatmentBeRecommended = false;
-
-            if (condition != ConditionEnum.Unknown)
-                canTreatmentBeRecommended = true;
-            else
-                Logger.Log("Your condition could not be diagnosed by the provided Symptoms. Please follow up with your doctor");
-
-            return canTreatmentBeRecommended;
-        }
-
-        void ShowTreatmentPlan()
-        {
-            Logger.Log("Showing Treatment...");
-
-            Logger.Log($"Your condition is the {treatment.Condition.ToString()}, which requires the following treatment: {treatment.Plan}");
-        }
-        void ShowTreatmentMedications()
-        {
-            Logger.Log("Medications Include");
-            foreach (string medication in treatment.Medications)
-            {
-                Logger.Log($"--{medication}");
-            }
-        }
-
-        void ShowTreatmentPrognosis()
-        {
-            Logger.Log($"Your prognosis is: {treatment.Prognosis}");
-        }
-
+    if (this.CanTreatmentBeRecomended() == true) {
+      this.ShowTreatmentPlan();
+      this.ShowTreatmentMedications();
+      this.ShowTreatmentPrognosis();
     }
+  }
+
+  LoadPatientTreatment() {
+    console.log(this.condition);
+    let treatmentJson: string = this.FileTreatmentSource.GetTreatmentFromFileSource(this.condition);
+    console.log(treatmentJson);
+    this.treatment = this.JsonTreatmentDeserializer.GetTreatmentFromJsonString(treatmentJson);
+  }
+
+  CanTreatmentBeRecomended(): boolean {
+    let canTreatmentBeRecommended: boolean = false;
+
+    if (this.condition != ConditionEnum.Unknown)
+      canTreatmentBeRecommended = true;
+    else
+      this.Logger.Log('Your condition could not be diagnosed by the provided Symptoms. Please follow up with your doctor');
+
+    return canTreatmentBeRecommended;
+  }
+
+  ShowTreatmentPlan(): void {
+    this.Logger.Log('Showing Treatment...');
+    this.Logger.Log(`Your condition is the {treatment.Condition.ToString()}, which requires the following treatment: ${this.treatment.Plan}`);
+  }
+
+  ShowTreatmentMedications() {
+    this.Logger.Log('Medications Include');
+    for (let medication of this.treatment.Medications) {
+      this.Logger.Log(`--${medication}`);
+    }
+  }
+
+  ShowTreatmentPrognosis() {
+    this.Logger.Log(`Your prognosis is: ${this.treatment.Prognosis}`);
+  }
 }
+
