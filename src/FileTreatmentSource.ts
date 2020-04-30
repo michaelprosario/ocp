@@ -18,10 +18,13 @@ export class FileTreatmentSource {
       case ConditionEnum.Allergies:
         treatmentJsonFileName = 'allergiesTreatment.json';
         break;
+      case ConditionEnum.Unknown:
+        treatmentJsonFileName = 'unknown.json';
+        break;        
     }
 
     console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-    console.log(treatmentJsonFileName);
+    console.log("treatmentJsonFile = " +  treatmentJsonFileName);
 
     return fs.readFileSync(treatmentJsonFileName, { encoding: 'utf8', flag: 'r' });
   }

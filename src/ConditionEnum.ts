@@ -1,5 +1,5 @@
 ﻿export enum ConditionEnum {
-  Cold,
+  Cold = 1,
   Flu,
   Allergies,
   Unknown
